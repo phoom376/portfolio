@@ -1,35 +1,32 @@
-import "./App.scss";
-import { Route, Switch, Link } from "react-router-dom";
-import Home from "./Home";
+import "./styles/App.scss";
+import { Route, Switch } from "react-router-dom";
+import Home from "./components/Home";
+import Nav from "./components/Nav";
+import About from "./components/About";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="App container">
-      <header className="App-header">
-        <nav className="nav-app">
-          <p className="header-title"><a href="/">PORTFOLIO</a></p>
-          <ul className="header-list">
-            <li>
-              <a><Link className="link" to="/">HOME</Link></a>
-            </li>
-            <li>
-              <a><Link className="link" to="/about">ABOUT</Link></a>
-            </li>
-            <li>
-              <a><Link className="link" to="/contact">CONTACT</Link></a>
-            </li>
-            
-          </ul>
-        </nav>
+    <div className="App">
+      <header className="App-header container">
+      <Nav />
+
       </header>
-      <body className="app-body mt-4">
+      <body className="app-body">
+      
         <Switch>
-          <Route path="/" component={Home}>
-            <Home  />
+          <Route exact path="/" component={Home}>
+            <Home />
           </Route>
+          <Route path="/about" component={About}>
+            <About />
+          </Route>
+        
         </Switch>
       </body>
-     
+      <footer>
+        <Footer/>
+      </footer>
     </div>
   );
 }
